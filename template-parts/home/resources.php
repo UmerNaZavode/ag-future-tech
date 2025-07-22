@@ -81,29 +81,33 @@ $card = $resources['card'];
                 <div class="card__cell card__cell--wide">
                   <img src="<?php echo $card_image; ?>" alt="" class="card__cell-image" width="917" height="332" loading="lazy">
                 </div>
-                <div class="card__cell tile">
-                  <h4 class="card__cell-subtitle">Total Ebooks</h4>
-                  <p class="card__cell-description h6">Over 100 ebooks</p>
-                </div>
-                <div class="card__cell tile">
-                  <h4 class="card__cell-subtitle">Download Formats</h4>
-                  <p class="card__cell-description h6">PDF format for access.</p>
-                  <a href="/" class="card__cell-link button">
-                    <span class="icon icon--yellow-eye">Preview</span>
-                  </a>
-                </div>
-                <div class="card__cell card__cell--wide tile">
-                  <h4 class="card__cell-subtitle">Average Author Expertise</h4>
-                  <p class="card__cell-description h6">Ebooks are authored by renowned experts with an
-                    average of 15 years of experience</p>
-                </div>
+                <?php if (isset($card_cell[0])) : ?>
+                  <div class="card__cell tile">
+                    <h4 class="card__cell-subtitle"><?php echo ($card_cell[0]['cell_title']); ?></h4>
+                    <p class="card__cell-description h6"><?php echo ($card_cell[0]['cell_description']); ?></p>
+                  </div>
+                <?php endif; ?>
+
+                <?php if (isset($card_cell[1])) : ?>
+                  <div class="card__cell tile">
+                    <h4 class="card__cell-subtitle"><?php echo ($card_cell[1]['cell_title']); ?></h4>
+                    <p class="card__cell-description h6"><?php echo ($card_cell[1]['cell_description']); ?></p>
+                    <a href="/" class="card__cell-link button">
+                      <span class="icon icon--yellow-eye"><?php echo ($card_cell[1]['cell_link']); ?></span>
+                    </a>
+                  </div>
+                <?php endif; ?>
+                <?php if (isset($card_cell[2])) : ?>
+                  <div class="card__cell card__cell--wide tile">
+                    <h4 class="card__cell-subtitle"><?php echo ($card_cell[2]['cell_title']); ?></h4>
+                    <p class="card__cell-description h6"><?php echo ($card_cell[2]['cell_description']); ?></p>
+                  </div>
+                <?php endif; ?>
               </div>
             </div>
           </div>
         </li>
-
       <?php endforeach; ?>
-
     </ul>
   </div>
 </section>
