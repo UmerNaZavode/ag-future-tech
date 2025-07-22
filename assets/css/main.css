@@ -1811,7 +1811,7 @@ button[aria-label]:before {
   grid-column: -1/1;
 }
 @media (width > 47.99875rem) {
-  .hero-alt__title-hidden-part {
+  .hero-alt__title span {
     position: absolute !important;
     width: 1px !important;
     height: 1px !important;
