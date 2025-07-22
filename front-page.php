@@ -10,6 +10,7 @@ get_header();
   <?php get_template_part( 'template-parts/home/hero'); ?>
   <?php get_template_part( 'template-parts/home/features'); ?>
   <?php get_template_part( 'template-parts/home/blog'); ?>
+  <?php get_template_part( 'template-parts/home/resources'); ?>
 </main>
 
 <?php get_footer(); ?>
