@@ -1,4 +1,7 @@
 <?php
+
+use function Avifinfo\read;
+
 $blog = get_field('blog');
 $card = $blog['card'];
 ?>
@@ -24,11 +27,25 @@ $card = $blog['card'];
     }
     ?>
     <header class="tabs__header">
-<?php  ?>
+      <?php
+      $term_name_get = isset($_GET['term_name']) ? $_GET['term_name'] : null;
+      function setActive($term_name_get, $link_name)
+      {
+        if (!$term_name_get) {
+          return null;
+        } else {
+          if ($term_name_get === $link_name) {
+            return 'is-active';
+          } else {
+            return null;
+          }
+        }
+      }
+      ?>
       <div class="tabs__buttons container" role="tablist" aria-labelledby="blog-category-title">
-        <a href="<?php echo get_the_permalink(); ?>?term_name=All" class="tabs__button is-active" type="button" role="tab">All</a>
+        <a href="<?php echo get_the_permalink(); ?>?term_name=All" class="tabs__button <?php echo setActive($term_name_get, 'All'); ?>" type="button" role="tab">All</a>
         <?php foreach ($jobs as $job) : ?>
-          <a href="<?php echo get_the_permalink(); ?>?term_name=<?php echo $job; ?>" class="tabs__button" type="button" role="tab"><?php echo $job; ?></a>
+          <a href="<?php echo get_the_permalink(); ?>?term_name=<?php echo $job; ?>" class="tabs__button <?php echo setActive($term_name_get, $job); ?>" type="button" role="tab"><?php echo $job; ?></a>
         <?php endforeach; ?>
       </div>
     </header>
