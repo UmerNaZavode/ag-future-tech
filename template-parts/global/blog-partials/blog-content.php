@@ -90,43 +90,39 @@ $card = $blog['card'];
       // vardump($author_posts->posts);
     }
     ?>
-    <?php foreach ($author_posts->posts as $post) : ?>
-      <?php
-      $id = $post->ID;
-      ?>
-      <h2><?php echo get_the_title($id); ?></h2>
-    <?php endforeach; ?>
-
     <div class="tabs__body">
       <div class="tabs__content is-active" id="tabpanel-1" aria-labelledby="tab-1" tabindex="0" data-js-tabs-content>
         <ul class="list">
-
-          <?php foreach ($card as $card_item) : ?>
+          <?php foreach ($author_posts->posts as $post) : ?>
             <?php
-            $card_image = $card_item['card_image'];
-            $card_name = $card_item['card_name'];
-            $card_department = $card_item['card_department'];
-            $card_date = $card_item['card_date'];
-            $card_title = $card_item['card_title'];
-            $card_description = $card_item['card_description'];
-            $card_button = $card_item['card_button'];
+            $id = $post->ID;
+            $author_terms = get_the_terms($id, 'author');
+            $author_term = $author_terms[0];
+            $author_title = $author_term->name;
+            $single_author = get_field('single_author', $author_term);
+            $author_image = $single_author['image'];
+            $author_job = $single_author['job'];
+            $post_date = get_the_date('F d,Y', $id);
+            $post_title = get_the_title($id);
+            $post_excerpt = get_the_excerpt($id);
+            $post_permalink = get_the_permalink($id);
             ?>
 
             <li class="list__item">
               <article class="blog-card container">
                 <div class="blog-card__author person-card">
-                  <img src="<?php echo $card_image; ?>" alt="" class="person-card__image" width="80" height="80" loading="lazy">
+                  <img src="<?php echo $author_image; ?>" alt="" class="person-card__image" width="80" height="80" loading="lazy">
                   <div class="person-card__body">
-                    <p class="person-card__name"><?php echo $card_name; ?></p>
-                    <p class="person-card__department"><?php echo $card_department; ?></p>
+                    <p class="person-card__name"><?php echo $author_title; ?></p>
+                    <p class="person-card__department"><?php echo $author_job; ?></p>
                   </div>
                 </div>
                 <div class="blog-card__body">
-                  <time class="blog-card__date h6" datetime="2023-10-15"><?php echo $card_date; ?></time>
+                  <time class="blog-card__date h6" datetime="2023-10-15"><?php echo $post_date; ?></time>
                   <div class="blog-card__info">
-                    <h4 class="blog-card__title"><?php echo $card_title; ?></h4>
+                    <h4 class="blog-card__title"><?php echo $post_title; ?></h4>
                     <div class="blog-card__description">
-                      <p><?php echo $card_description; ?></p>
+                      <p><?php echo $post_excerpt; ?></p>
                     </div>
                   </div>
                   <div class="blog-card__actions blog-actions">
@@ -164,8 +160,8 @@ $card = $blog['card'];
                     </ul>
                   </div>
                 </div>
-                <a href="/" class="blog-card__link button">
-                  <span class="icon icon--yellow-arrow"><?php echo $card_button; ?></span>
+                <a href="<?php echo $post_permalink; ?>" class="blog-card__link button">
+                  <span class="icon icon--yellow-arrow">View Blog</span>
                 </a>
               </article>
             </li>
@@ -173,21 +169,6 @@ $card = $blog['card'];
           <?php endforeach; ?>
 
         </ul>
-      </div>
-      <div class="tabs__content" id="tabpanel-2" aria-labelledby="tab-2" tabindex="0" data-js-tabs-content>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, perferendis?
-      </div>
-      <div class="tabs__content" id="tabpanel-3" aria-labelledby="tab-3" tabindex="0" data-js-tabs-content>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, perferendis?
-      </div>
-      <div class="tabs__content" id="tabpanel-4" aria-labelledby="tab-4" tabindex="0" data-js-tabs-content>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, perferendis?
-      </div>
-      <div class="tabs__content" id="tabpanel-5" aria-labelledby="tab-5" tabindex="0" data-js-tabs-content>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, perferendis?
-      </div>
-      <div class="tabs__content" id="tabpanel-6" aria-labelledby="tab-6" tabindex="0" data-js-tabs-content>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, perferendis?
       </div>
     </div>
   </div>
