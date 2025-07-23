@@ -3,7 +3,6 @@ $blog = get_field('blog');
 $header_title = $blog['header_title'];
 $header_subtitle = $blog['header_subtitle'];
 $header_button = $blog['header_button'];
-$card = $blog['card'];
 ?>
 
   <header class="section__header">

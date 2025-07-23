@@ -62,9 +62,9 @@ $card = $resources['card'];
                   <div class="download-info__team team">
                     <?php foreach ($download_person as $dw_item) : ?>
                       <?php
-                      $download_image = $dw_item['download_image'];
+                      $image = $dw_item['image'];
                       ?>
-                      <img src="<?php echo $download_image; ?>" alt="" class="team__person" width="50" height="50" loading="lazy">
+                      <img src="<?php echo $image; ?>" alt="" class="team__person" width="50" height="50" loading="lazy">
                     <?php endforeach; ?>
                   </div>
                 </div>

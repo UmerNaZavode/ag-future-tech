@@ -1,11 +1,3 @@
-<?php
-
-use function Avifinfo\read;
-
-$blog = get_field('blog');
-$card = $blog['card'];
-?>
-
 <section class="section" aria-labelledby="blog-title">
   <div class="section__body tabs" data-js-tabs>
     <h3 class="visually-hidden" id="blog-category-title">Blog Category</h3>
@@ -93,9 +85,9 @@ $card = $blog['card'];
     <div class="tabs__body">
       <div class="tabs__content is-active" id="tabpanel-1" aria-labelledby="tab-1" tabindex="0" data-js-tabs-content>
         <ul class="list">
-          <?php foreach ($author_posts->posts as $post) : ?>
+          <?php foreach ($author_posts->posts as $post_blog) : ?>
             <?php
-            $id = $post->ID;
+            $id = $post_blog->ID;
             $author_terms = get_the_terms($id, 'author');
             $author_term = $author_terms[0];
             $author_title = $author_term->name;
