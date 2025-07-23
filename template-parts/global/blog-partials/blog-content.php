@@ -32,6 +32,9 @@ $card = $blog['card'];
       function setActive($term_name_get, $link_name)
       {
         if (!$term_name_get) {
+          if ($link_name === 'All') {
+            return 'is-active';
+          }
           return null;
         } else {
           if ($term_name_get === $link_name) {
@@ -62,8 +65,12 @@ $card = $blog['card'];
       $field = get_field('single_author', $author); // ACF field name
       $job = $field['job'];
       // vardump($job);
-      if ($job === 'Space Exploration') {
+      if ($term_name_get === null || $term_name_get === 'All') {
         $matching_terms[] = $author->term_id;
+      } else {
+        if ($job === $term_name_get) {
+          $matching_terms[] = $author->term_id;
+        }
       }
     }
 
@@ -83,6 +90,12 @@ $card = $blog['card'];
       // vardump($author_posts->posts);
     }
     ?>
+    <?php foreach ($author_posts->posts as $post) : ?>
+      <?php
+      $id = $post->ID;
+      ?>
+      <h2><?php echo get_the_title($id); ?></h2>
+    <?php endforeach; ?>
 
     <div class="tabs__body">
       <div class="tabs__content is-active" id="tabpanel-1" aria-labelledby="tab-1" tabindex="0" data-js-tabs-content>
