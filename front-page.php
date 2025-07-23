@@ -2,7 +2,6 @@
 /*
  * Template Name: front-page
  */
-
 get_header();
 ?>
 

@@ -47,3 +47,8 @@ function vardump($var)
   var_dump($var);
   echo '</pre>';
 }
+add_filter( 'acfwpcli_fieldgroup_paths', 'add_plugin_path' );
+function add_plugin_path( $paths ) {
+    $paths['my_plugin'] = get_template_directory() . '/acf/';
+    return $paths;
+  }
