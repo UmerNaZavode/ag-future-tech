@@ -24,9 +24,9 @@ $card = $blog['card'];
     }
     ?>
     <header class="tabs__header">
-
+<?php  ?>
       <div class="tabs__buttons container" role="tablist" aria-labelledby="blog-category-title">
-        <a href="<?php echo get_the_permalink(); ?>?term_name=all" class="tabs__button is-active" type="button" role="tab">All </a>
+        <a href="<?php echo get_the_permalink(); ?>?term_name=All" class="tabs__button is-active" type="button" role="tab">All</a>
         <?php foreach ($jobs as $job) : ?>
           <a href="<?php echo get_the_permalink(); ?>?term_name=<?php echo $job; ?>" class="tabs__button" type="button" role="tab"><?php echo $job; ?></a>
         <?php endforeach; ?>

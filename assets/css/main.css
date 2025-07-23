@@ -1136,6 +1136,12 @@ button[aria-label]:before {
     justify-content: start;
   }
 }
+.card__cell-small {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+  margin-top: 2rem;
+}
 .card__preview-icon {
   width: clamp(3.125rem, 2.520661157rem + 2.479338843vw, 5rem);
 }
