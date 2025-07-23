@@ -7,6 +7,8 @@ if (!defined('_S_VERSION')) {
 
 require_once __DIR__ . "/inc/theme-setup.php";
 
+require_once __DIR__ . "/inc/ar-post-type.php";
+
 require_once __DIR__ . "/inc/acf.php";
 
 require_once __DIR__ . "/inc/theme-widgets.php";
