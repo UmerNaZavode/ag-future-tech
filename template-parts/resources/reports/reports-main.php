@@ -55,12 +55,12 @@ $items = $resources_details['items'];
               $cell_title = $cell_item['cell_title'];
               $cell_description = $cell_item['cell_description'];
               ?>
-            <div class="card__cell tile">
-              <p class="card__cell-title"><?php echo $cell_title; ?></p>
-              <p class="card__cell-description h6">
-                <time datetime="2023-07"><?php echo $cell_description; ?></time>
-              </p>
-            </div>
+              <div class="card__cell tile">
+                <p class="card__cell-title"><?php echo $cell_title; ?></p>
+                <p class="card__cell-description h6">
+                  <time datetime="2023-07"><?php echo $cell_description; ?></time>
+                </p>
+              </div>
             <?php endforeach; ?>
           </div>
         </div>
