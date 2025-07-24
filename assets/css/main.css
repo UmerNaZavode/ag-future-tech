@@ -662,6 +662,10 @@ button[aria-label]:before {
     --size: 1.25rem;
   }
 }
+.soc1als__img {
+  width: 24px;
+  height: auto;
+}
 .footer {
   color: var(--color-dark-40);
 }
